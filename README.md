@@ -1,4 +1,4 @@
-Nama    : Rakha Davin Bani Alamsyah...
+Nama    : Rakha Davin Bani Alamsyah
 
 NPM     : 2206082650
 
