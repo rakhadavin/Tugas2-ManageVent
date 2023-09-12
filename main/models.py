@@ -37,10 +37,5 @@ class Item(models.Model):
     def __str__(self):
         return "{}".format(self.nama_obat, self.amount, self.satuan_harga, self.jenis_obat,self.harga, self.satuan_harga,self.deskripsi)
 
-# class date(forms.Form):
-#     expired = models.DateField(auto_now=True,default=datetime.now()) #expired
-#     def __str__(self):
-#         return "{}".format(self.expired)
 
-    
 
