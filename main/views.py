@@ -8,7 +8,7 @@ def home(request):
         "nama" : "Rakha Davin Bani Alamsyah",
         "kelas": "PBP F",
         "title":"ManageVent",
-        "app" : "Main",
+        "app" : "main",
         "pages" : "Home",
         
     }
