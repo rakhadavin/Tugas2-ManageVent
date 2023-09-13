@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from models import Item
+from . import models
 
 
 def home(request):
-    my_items = Item.objects.all()
+    my_items = models.Item.objects.all()
     context = {
         "nama_project" : "ManageVent",
         "developer" : "Daveen",
@@ -12,7 +12,7 @@ def home(request):
         "title":"ManageVent",
         "app" : "main",
         "pages" : "Home",
-        "item":my_items,
+        "item":my_items
         
     }
     return render(request,"home.html",context)
