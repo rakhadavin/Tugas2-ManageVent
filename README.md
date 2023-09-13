@@ -6,6 +6,10 @@ Kelas   : PBP F
 
 Jurusan : Sistem Informasi-Fasilkom UI
 
+Link : 
+https://github.com/rakhadavin/Tugas2-ManageVent/tree/mainBranch (Github)
+https://managevent01.adaptable.app/main (Addaptable)
+
 
 
 
