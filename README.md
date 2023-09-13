@@ -76,7 +76,7 @@ isi file home.html --> menampilkan, nama Program-nama app, nama mahasiswa, kelas
 # 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 
 
-![alt text](/Tugas2-ManageVent/Images/BaganDjango.png)
+![alt text](/Images/BaganDjango.png)
 
 # 1                         2                         3                  4                5
 [Request Client]   -->   [urls.py]           -->      [views.py]                 -->   [models.py]
