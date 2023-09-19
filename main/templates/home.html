@@ -2,14 +2,33 @@
 <html>
 <head>
 <title>{{app}} - {{pages}} | {{title}}</title>
-<link rel="icon" type="image/png" href="">
+<link rel="icon" type="image/png" href="D:\SEMESTER3\PBP - GitHub\TUGAS\TUGAS2\Tugas2-ManageVent\Images">
 <style>
+body
+
+
+
     h1{
         display: flex;
         justify-content: center;
     }
 p{
     font-size: 20px;
+}
+table{
+    border :2px solid Black
+}
+
+td,tr {
+    border :2px solid Black;
+    padding : 3px;
+
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 </style>
@@ -21,9 +40,40 @@ p{
 <p> <b>Nama         : </b>  {{nama}}</p>
 <p><b> Kelas        : </b> {{kelas}} </p>
 
+<h3>Berikut Data-Data Obat Apotek Kerh </h3>
 
+<table>
+    <tr>
+        <th>Nama Obat</th>
+        <th>Harga</th>
+        <th>Stok</th>
+        <th>Jenis Satuan</th>
+        <th>Jenis Obat</th>
+        <th>Expired</th>
+    </tr>
+    <br>
+    <hr>    
 
+    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
 
+    {% for obat in items %}
+        <tr>
+            <td>{{obat.nama_obat}}</td>
+            <td>{{obat.harga}}</td>
+            <td>{{obat.amount}}</td>
+            <td>{{obat.satuan_harga}}</td>
+            <td>{{obat.jenis_obat}}</td>
+            <td>{{obat.expired}}</td>
+        </tr>
+       
+    {% endfor %}
+</table>
+ {% comment %} button untuk menuju laman pendaftaran data obat {% endcomment %}
+<a href="create-obat/">
+    <button>Tambahkan Data Obat</button>
+</a>
 
+<br />
+    
 </body>
 </html>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<h1>Tambahkan Data Obat</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Add Product"/>
+            </td>
+     
+        </tr>
+    </table>
+</form>
+
+{% comment %} manambahkan button untuk kemali kehalaman sbeelumnya, untuk melihat tabel {% endcomment %}
+<a href="/">
+    <button>Kembali</button>
+</a>
+
+{% endblock %}
