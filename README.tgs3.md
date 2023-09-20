@@ -100,12 +100,14 @@ akses XML :
 
 akses XML by ID :
 ![Akses XML by ID](Images/xmlByID.jpeg)
+![Akses XML by ID](Images/xmlByID2.jpeg)
 
 akses JSON : 
 ![Akses JSON](Images/jsonBiasa.jpeg)
 
 akses JSON by ID : 
 ![Akses JSON by ID](Images/jsonByID.jpeg)
+![Akses JSON by ID](Images/jsonByID2.jpeg)
 
 akses HTML (main ("")):
 ![HTML  mainpage](Images/html-main.jpeg)
