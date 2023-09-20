@@ -91,19 +91,19 @@ pada dasarnya url untuk string kosong, akan menuju halaman web dengan app 'main'
 # Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
 
 akses XML : 
-![alt text](TUGAS/TUGAS2/Images/xmlBiasa.jpeg)
+![Akses XML](Images/xmlBiasa.jpeg)
 
 akses XML by ID :
-![alt text](TUGAS/TUGAS2/Images/xmlByID.jpeg)
+![Akses XML by ID](Images/xmlByID.jpeg)
 
 akses JSON : 
-![alt text](TUGAS/TUGAS2/Images/jsonBiasa.jpeg)
+![Akses JSON](Images/jsonBiasa.jpeg)
 
 akses JSON by ID : 
-![alt text](TUGAS/TUGAS2/Images/jsonByID.jpeg)
+![Akses JSON by ID](Images/jsonByID.jpeg)
 
 akses HTML (main ("")):
-![alt text](TUGAS/TUGAS2/Images/html-main.jpeg)
+![HTML - mainpage](Images/html-main.jpeg)
 
 akses HTML (create-project) : 
-![alt text](TUGAS/TUGAS2/Images/html-create-project.jpeg)
+![HTML - cretae-obat](Images/html-create-project.jpeg)
