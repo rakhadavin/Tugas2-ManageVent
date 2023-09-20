@@ -10,7 +10,8 @@ from django.core import serializers
 
 
 def home(request):
-    my_obats = models.Item.objects.all()
+    my_obats = models.Item.objects.all()    
+    banyak_item = my_obats.count()
     context = {
         "nama_project" : "ManageVent",
         "developer" : "Daveen",
@@ -19,7 +20,8 @@ def home(request):
         "title":"ManageVent",
         "app" : "main",
         "pages" : "Home",
-        "items":my_obats
+        "items":my_obats,
+        "banyak_item" : banyak_item,
         
     }
     
@@ -28,8 +30,11 @@ def home(request):
 
 
 def creat_data_obat (request) :
+  
+    
     form = ProductForms(request.POST or None)
     if (form.is_valid() and request.method == "POST"):
+
         form.save()
         return HttpResponseRedirect(reverse('main:create_obat'))
 
