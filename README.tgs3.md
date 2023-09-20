@@ -86,6 +86,11 @@ pada dasarnya url untuk string kosong, akan menuju halaman web dengan app 'main'
 6. membuat file home.html untuk menampilkan halaman web yang berisi identitas saya dan tabel data yang telah didaftarkan di database
 7. membuat file create_product.html untuk memfasilitasi user mendaftarkan data-data obat pada database
 
+BONUS:
+untuk memberikan keterangan jumlah item yang sudah di daftarkan ke database, saya membuat variabel bernama "banyak_item" dan menyimpan banyak item dalam tabel tersebut. Dengan menggunakan methode "obj.count()" --> (models.Item.count()) kita akan mendapatkan banyak item yang kita dapatkan, item yang dimaksud adalah obat yang telah saya daftarkan.
+
+models.Item akan berperan sebagai objek yang berasal dari views.py
+
 
 
 # Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
@@ -103,7 +108,7 @@ akses JSON by ID :
 ![Akses JSON by ID](Images/jsonByID.jpeg)
 
 akses HTML (main ("")):
-![HTML - mainpage](Images/html-main.jpeg)
+![HTML  mainpage](Images/html-main.jpeg)
 
 akses HTML (create-project) : 
-![HTML - cretae-obat](Images/html-create-project.jpeg)
+![HTML  cretae-obat](Images/html-create-project.jpeg)
