@@ -32,6 +32,8 @@
         justify-content: center;
         align-items: center;
     }
+
+
     .jml-item{
         color: red;
     }
@@ -101,7 +103,6 @@
         <th>Jenis Satuan</th>
         <th>Jenis Obat</th>
         <th>Expired</th>
-        <th>id</th>
         <th>Update</th>
     </tr>
     <br>
@@ -117,7 +118,6 @@
             <td>{{obat.satuan_harga}}</td>
             <td>{{obat.jenis_obat}}</td>
             <td>{{obat.expired}}</td>
-            <td>{{obat.id}}</td>
             <td>
                 <div class="btn-group option-group-btn" role="group" aria-label="Basic mixed styles example">
                     <button type="button" class="btn btn-success"><a href="{% url 'main:nambah_obat' obat.id %}" class="update-option">Tambah Stok</a></button>

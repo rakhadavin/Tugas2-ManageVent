@@ -1,17 +1,17 @@
 from django.forms import ModelForm
-from main.models import Item
+from . import models
 from django import forms
 
 
 class ProductForms(ModelForm):
     class Meta:
-        model = Item
+        model = models.Item
         fields = ["nama_obat", "amount", "harga", "satuan_harga","jenis_obat","expired", "deskripsi"]
         
 
 class ExpiredForms(forms.ModelForm):
     class Meta:
-        model = Item
+        model = models.Item
         fields =['expired']
         
 
