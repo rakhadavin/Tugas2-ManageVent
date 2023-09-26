@@ -1,12 +1,13 @@
 from django.db import models
 from django import forms
 from datetime import datetime
-from django.contrib.admin.widgets import AdminDateWidget
+from django.contrib.auth.models import User
 
 dateNow = datetime.now()
 
 #pengelolaan apotek
 class Item(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     #membuat pilihan (choice) untuk checkbox
     pilihan_jenis_obat ={
         ("Herbal/Suplemen","Herbal/Suplemen"),
