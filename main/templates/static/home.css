@@ -1,0 +1,73 @@
+.greetings{
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}
+p{
+    font-size: 20px;
+
+
+}
+table{
+    border :2px solid Black;
+    width: 10vh;
+}
+
+td,tr {
+    border :2px solid Black;
+    padding : 3px;
+}
+
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.jml-item{
+    color: red;
+}
+
+.update-option{
+text-decoration: none;
+color : white;
+font-size: 15px;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
+
+}
+
+.option-group-btn{
+width: 50vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.identitas{
+background-color: #125F53;
+margin-left: 5px;
+color: white;
+
+padding: 10px;
+width: 30%;
+border-radius: 15px;
+}
+
+.session{
+font-size: 10px;
+margin-left: 10px;
+
+}
+.nama-toko{
+display: flex;
+justify-content: center;
+alignitems:center;
+
+}
+
+.navbar{
+background-color: blue;
+}
+

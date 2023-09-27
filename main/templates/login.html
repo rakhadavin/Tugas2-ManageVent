@@ -6,40 +6,87 @@
 
 {% block content %}
 
-<div class = "login">
+<style>
 
-    <h1>Login</h1>
+    *{
+        color: white;
+    }
+    .login{
+      
+        background-color: rgb(32, 39, 47);
+        padding : 15px;
+        width: max-content;
+        height: 300px;
+        border-radius: 15px;
+        margin-top: 50%;
+        margin-bottom: 50%;
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
+       
+    }
 
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
 
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
+    .container{
+        display : flex;
+        align-items: center;
+        justify-content: center;
+        height: 85vh;
+     
         
-    Belum Memiliki Akun ? <a href="{% url 'main:register' %}">Daftar Disini</a>
 
+    }
+
+    .login_btn{
+        background-color: hsl(170, 40%, 60%);
+        color: #FFEBEE;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+   
+        
+    }
+
+</style>
+<div class="container">
+
+    <div class = "login">
+    
+        <h1>Login</h1>
+    
+        <form method="POST" action="">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Username: </td>
+                    <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                </tr>
+                        
+                <tr>
+                    <td>Password: </td>
+                    <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                </tr>
+    
+                <tr>
+                    <td></td>
+                    <td><input class="btn login_btn" type="submit" value="Login"></td>
+                </tr>
+            </table>
+        </form>
+    
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}     
+            
+        <p>Belum Memiliki Akun ? <a href="{% url 'main:register' %}">Daftar Disini</a> </p>
+    
+    </div>
 </div>
 
 
