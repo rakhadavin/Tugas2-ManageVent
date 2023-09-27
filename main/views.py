@@ -80,7 +80,6 @@ def register (request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            # messages.success(request, 'Your account has been successfully created!')
             messages.success(request, 'Selamat Akun Anda Berhasil Dibuat !')
             return redirect('main:home') ## mengarahkan ke url --> 'app_name:url_name
         # elif ( authenticate(request,request.POST.get('username'), request.POST.get('password')) is not none):
