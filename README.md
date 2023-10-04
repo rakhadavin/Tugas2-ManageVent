@@ -415,6 +415,8 @@ selected.item.delete() --> menghapus item
 Manfaat: Memilih semua elemen dengan nama yang cocok.
 Kapan Menggunakan: Cocok untuk gaya yang akan diterapkan pada semua elemen dengan nama yang sama, misalnya, mengatur semua paragraf ("<p>) atau semua heading ("<h1>, "<h2>, dst.).
 
+
+kurang diasarankan, karena rentan mengubah smua tag yang dimaksud tanpa sengaja
 * contoh
 p {
     color: blue;
@@ -425,6 +427,8 @@ p {
 2. Class Selector (.class):
 Manfaat: Memilih elemen dengan kelas tertentu.
 Kapan Menggunakan: Berguna ketika Anda ingin menerapkan gaya pada beberapa elemen yang memiliki kelas yang sama, memungkinkan penggunaan kelas yang bersifat reusable.
+
+Biasanya digunakna untuk select elemen tertentu
 * contoh
 .highlight {
     background-color: yellow;
@@ -433,6 +437,8 @@ Kapan Menggunakan: Berguna ketika Anda ingin menerapkan gaya pada beberapa eleme
 3. ID Selector (#id):
 Manfaat: Memilih elemen dengan ID tertentu.
 Kapan Menggunakan: Cocok untuk menerapkan gaya pada elemen unik yang hanya ada satu di halaman.
+
+Biasanya digunaknan untuk selecting elemen pada JS
 * contoh 
 #header {
     font-size: 24px;
@@ -443,6 +449,8 @@ Kapan Menggunakan: Cocok untuk menerapkan gaya pada elemen unik yang hanya ada s
 Manfaat: Memilih elemen yang merupakan keturunan dari elemen tertentu.
 Kapan Menggunakan: Berguna ketika Anda ingin memilih elemen yang berada di dalam elemen lain, seperti memilih semua paragraf yang berada di dalam elemen dengan class tertentu.
 * contoh
+
+menjadikan selecting lebih spesifik dengan acuan elemen yang ada diluar target elemen yang dimaksud
 
 .container p {
     margin-bottom: 10px;
@@ -459,7 +467,10 @@ ul > li {
 
 6. Pseudo-Class Selector (:pseudo-class):
 Manfaat: Memilih elemen berdasarkan keadaan atau interaksi pengguna.
-Kapan Menggunakan: Cocok untuk merubah tampilan elemen saat berada dalam keadaan tertentu, misalnya, mengubah warna tautan saat di-hover.
+
+Kapan Menggunakan: saat ingin merubah tampilan elemen saat berada dalam keadaan (event) tertentu, misalnya, mengubah warna tautan saat di-hover.
+
+dapat menggunakan nnth-child(n) untuk memilih elemen ke berapa (bisa juga berpola spt genap ganjil)
 * contoh 
 a:hover {
     color: red;
@@ -473,6 +484,10 @@ p::first-line {
     font-weight: bold;
 }
 
+
+8. Global Selector (*)
+
+menerapkakn semua perubahan style ke semua elemen dalam web
 
 
 # Perbedaan Margin dan Padding
@@ -616,6 +631,45 @@ sebaiknya digunakan ketika ingin mengatur jarak internal elemen, biasanya ketika
 "<xmp>	Deprecated: Specifies preformatted text
 
 
+
+# kapan sebaiknya menggunakan Bootstrap dan tailwind dan apa bedanya
+
+
+Tailwinds :
+
+- menguntamakan utilitas
+- kustomisasi lebih mudah dan lebih bebas
+- flexibel
+- Tampilan HTML menjadi lebih penuh 
+- Ideal untuk project yang banyak kustomisasi
+
+Direkomendasikan untuk dipakai ketika membuat project yang banyak kustommiasai, berkaitan dengan React.JS, Vue, dan JS
+
+
+Bootstrap:
+- kaya akan sumber, elemen, dan templates
+- Kerangka kerja lebih terstrukutr (html)
+- cocok untuk project dengan kerangka kerja yng stabil, tidak banyakk kustomisasi
+
+
+Direkomendasikan menggunakan Bootstrap ketika project yang kita ambil tidak terlalu banyak perubahan, dengan responsif yang lebih baik
+
+
+
+# Step melakukan kustomisasi pada Tugas 5
+
+1. Kustomisasi CSS, menambahkan navbar pada home, kemudian mengatur url routing pada navigation di navbar
+
+2. memberi template bootstrap pada tabel item, dan memberi button berwarna berbda sesuai fungsi dan arti warnanya
+
+3. membuat tombol + obat dan logout dengan template bootstrap
+
+4. mengatur letak elemen
+    - Menjadikan navbar Fixed Position
+    - memnjadikan tombol add producut dan logout menjadi floating button
+    - mengubah warna latar (tujuan awal switch theme dark/light)
+
+5. Mengatur CSS pada halaman Login dan Create product agar lebih nyama di lihat, memberi div sebagai pembungkus.
 
 
 
