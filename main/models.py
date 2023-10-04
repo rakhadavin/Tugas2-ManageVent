@@ -37,20 +37,28 @@ class Item(models.Model):
     jenis_obat = models.CharField(max_length=100, default="Generic", choices=pilihan_jenis_obat) #jenis obat
     deskripsi = models.TextField()   #kegunaan obat
     expired = models.DateField(verbose_name="Expired \n(format : yyyy-mm-dd)") #expired
-    
+    gambar = models.ImageField( upload_to=None, max_length=100)
     
     
 
     def __str__(self):
-        return "{}".format(self.nama_obat, self.amount, self.satuan_harga, self.jenis_obat,self.harga,self.deskripsi,self.expired)
+        self.fields['expired'].widget = forms.DateInput(attrs={'type': 'date'})
+        return "{}".format(self.nama_obat, self.amount, self.satuan_harga, self.jenis_obat,self.harga,self.deskripsi,self.expired,self.gambar)
 
-class expired(forms.Form):
-    expired = forms.DateField(
-        widget=forms.SelectDateWidget)
 
+class user_profile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile_picture = models.FileField()
+    nama_profile = models.CharField(max_length=255) 
+    user_email =models.EmailField( max_length=254)
+    
     
     def __str__(self):
-        return "{}".format(self.expired)
+        return "{}".format(self.user, self.profile_picture, self.nama_profile, self.user_email)
 
+   
+    
+    
 
-
+# class UserProfile(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)

@@ -19,31 +19,41 @@ import datetime
 def home(request):
     my_obats = models.Item.objects.filter(user = request.user)    
     banyak_item = my_obats.count()
-    context = {
-        "nama_project" : "ManageVent",
-        "developer" : "Daveen",
-        "nama" : request.user.username,
-        "kelas": "PBP F",
-        "title":"ManageVent",
-        "app" : "main",
-        "pages" : "Home",
-        "items":my_obats,
-        "banyak_item" : banyak_item,
-        'last_login': request.COOKIES['last_login'],
-        
-    }
-    
+    last_item = my_obats.last()
 
+    
+    try:
+            
+        context = {
+            "nama_project" : "ManageVent",
+            "developer" : "Daveen",
+            "nama" : request.user.username,
+            "kelas": "PBP F",
+            "title":"ManageVent",
+            "app" : "main",
+            "pages" : "Home",   
+            "items":my_obats,
+            "banyak_item" : banyak_item,
+            "last_item":last_item,
+            "last_login": request.COOKIES['last_login'],
+            
+        }
+    except:
+        return redirect("main:login")
     return render(request,"home.html",context)
+
+
 def create_data_obat (request) :
     form = ProductForms(request.POST or None)
     if (form.is_valid() and request.method == "POST"):
         product = form.save(commit=False)
         product.user = request.user
         product.save()
-        # return HttpResponseRedirect(reverse('main:show_main'))
-
         form.save()
+        
+        product.user = request.user
+        product.save()
+
         return redirect('main:home')
 
     context = {'form': form}
@@ -144,10 +154,32 @@ def kurangi_obat(request,id_obat):
 
 
 
-def delete_obat(request,id_obat):
-    selected_item = models.Item.objects.get(id=id_obat)
+def delete_obat(request,id_user):
+    selected_item = models.Item.objects.get(id=id_user)
     if  selected_item is not None:
         selected_item.delete()
 
     return HttpResponseRedirect(reverse('main:home'))
+    
+def edit_profile(request,id_user):
+    selected_user = request.user.filter(id = id_user)
+    profile_form    = models.profileForm(request.POST)
+    
+    print(selected_user)
+    if (request.methode == 'POST' and profile_form.is_valid()):
+        if ( selected_user is not None):
+            additional_data = profile_form.cleaned_data['additional_data']
+            request.user.userprofile.additional_field = additional_data
+            request.user.userprofile.save()
+            user_profile = profile_form.save(commit=False)
+            user_profile.save()
+            selected_user.profile = user_profile
+
+
+        return redirect('main:home',profile_form)
+        
+        
+    print(selected_user.username)
+    return render(request,"user_profile.html",)
+
     

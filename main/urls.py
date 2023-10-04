@@ -1,5 +1,6 @@
 
 from django.urls import path
+from django.conf import settings
 from main.views import  show_xml, show_json, show_xml_by_id, show_json_by_id 
 from . import views
 
@@ -13,6 +14,7 @@ urlpatterns = [
     path('nambah/<str:id_obat>/', views.nambah_obat, name='nambah_obat'),
     path('kurangi/<str:id_obat>/', views.kurangi_obat, name='kurangi_obat'),
     path('delete/<str:id_obat>/', views.delete_obat, name='delete_obat'),
+    # path('user-profile/<int:id_user>/', views.edit_profile, name='user-profile'),
     
     path('xml/', show_xml, name='show_xml'), 
     path('json/', show_json, name='show_json'), 

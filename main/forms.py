@@ -3,30 +3,23 @@ from . import models
 from django import forms
 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class ProductForms(ModelForm):
     class Meta:
         model = models.Item
-        fields = ["nama_obat", "amount", "harga", "satuan_harga","jenis_obat","expired", "deskripsi"]
-        
+        fields = ["nama_obat", "amount", "harga", "satuan_harga","jenis_obat","expired", "deskripsi","gambar"]
 
-class ExpiredForms(forms.ModelForm):
+    expired = forms.DateField(widget=DateInput)
+   
+   
+class profileForm(ModelForm):
     class Meta:
-        model = models.Item
-        fields =['expired']
+        model = models.user_profile
+        fields=["user","profile_picture", "nama_profile","user_email"]
+    
+    
+
         
-
-    
-expired = forms.DateField(
-    widget=forms.DateInput(
-        attrs={
-            
-            'class': 'form-control',
-            'type':"date",
-        }
-    )
-)
-
-class DateInput(forms.DateInput):
-    input_type = 'date'
-    
 

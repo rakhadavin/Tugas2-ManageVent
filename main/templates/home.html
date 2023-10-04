@@ -1,179 +1,254 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>{{app}} - {{pages}} | {{title}}</title>
-<link rel="icon" type="image/png" href="D:\SEMESTER3\PBP - GitHub\TUGAS\TUGAS2\Tugas2-ManageVent\Images">
-<link rel="stylesheet" href="">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<style>
-    .greetings{
+  <head>
+    <title>{{ app }} - {{ pages }} | {{ title }}</title>
+    <link rel="icon" type="image/png" href="D:\SEMESTER3\PBP - GitHub\TUGAS\TUGAS2\Tugas2-ManageVent\Images" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <style>
+      .greetings {
         display: flex;
         justify-content: center;
         margin-top: 10vh;
-    }
-    p{
+        color: white;
+      }
+      p {
         font-size: 20px;
-
-
-    }
-    table{
-        border :2px solid Black;
+      }
+      table {
+        border: 2px solid Black;
         width: 10vh;
-    }
-    
-    td,tr {
-        border :2px solid Black;
-        padding : 3px;
-    }
-
-    
-    button{
+        padding-right: 15px;
+        padding-left: 15px;
+        overflow-y: auto;
+      }
+      
+      td,
+      tr {
+        border: 2px solid Black;
+        padding: 3px;
+      }
+      
+      button {
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-
-    .jml-item{
-        color: red;
-    }
-
-.update-option{
-   text-decoration: none;
-   color : white;
-   font-size: 15px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
-
-}
-
-.option-group-btn{
-    width: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.identitas{
-    background-color: #125F53;
-    margin-left: 5px;
-    color: white;
-
-    padding: 10px;
-    width: 30%;
-    border-radius: 15px;
-}
-
-.session{
-    font-size: 10px;
-    margin-left: 10px;
-
-}
-.nama-toko{
-    display: flex;
-    justify-content: center;
-    alignitems:center;
-
-}
-
-.navbar{
-    background-color: blue;
-}
-
-
-
+      }
+      
+      .jml-item {
+        color: #ff008c;
+      }
+      
+      .update-option {
+        text-decoration: none;
+        color: white;
+        font-size: 15px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+      
+      .option-group-btn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .identitas {
+        background-color: #125f53;
+        margin-left: 15px;
+        color: white;
+      
+        padding: 15px;
+        width: max-content;
+        border-radius: 15px;
+      }
+      
+      .session {
+        font-size: 10px;
+        margin-left: 20px;
+        color: white;
+        padding-top: 10px;
+      }
+      .nama-toko {
+        display: flex;
+        justify-content: center;
+        alignitems: center;
+        color: white;
+      }
+      
+      .userbtn {
+        position: fixed;
+      
+        display: flex;
+        flex-direction: row;
+        background-color: linear-gradient(to right, #ff8a00, #da1b60);
+        width: 100%;
+        bottom: 0;
+        padding-left: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-right: 100px;
+        opacity: 60%%;
+      }
+      
+      .user-btn {
+        margin-right: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); /* Efek bayangan untuk memberikan kedalaman */
+      }
+      
+      .navbar {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+      .search-field {
+        margin-right: 35px;
+      }
+      .table-container {
+        margin: 10px;
+        margin-bottom: 50px;
+      
+        padding-bottom: 10px;
+        z-index: -1;
+      }
+      
+      .banyak-item {
+        background-color: #ffd255;
+        color: #1d254a;
+        width: inherit;
+        margin-left: 15px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .content {
+        padding-top: 10px;
+        background-color: #1a2c36;
+      }
+      .last-item > td {
+        background-color: #680028;
+        color: #ffffff;
+      }
+      
+      .btn-info {
+        margin-left: 10px;
+      }
     </style>
-
-</head>
-<body>
-
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'main:home' %}">ManageVent</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="{% url 'main:home' %}">Home</a>
-              <a class="nav-link" href="#">Kelola Akun</a>
-              <a class="nav-link" href="#">Pricing</a>
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'main:home' %}">ManageVent</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="{% url 'main:home' %}">Home</a>
+            <a class="nav-link" href="#"">Kelola Akun</a>
+            <a class="nav-link" href="{% url 'main:create_obat' %}">Tambah Obat</a>
+            <a class="nav-link" href="{% url 'main:logout' %}">Logout</a>
           </div>
         </div>
-      </nav>
-
-
-    <div class="greetings">
+      </div>
+      <form class="d-flex search-field" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </nav>
+    <div class="content">
+      <div class="greetings">
         <h1>Selamat Datang di ManageVent</h1>
-    </div>
-    <h3 class="nama-toko">"APOTEK KERH" </h3>
+      </div>
+      <h3 class="nama-toko">"APOTEK KERH"</h3>
 
+      <div class="identitas">
+        <p>
+          <b>Nama Project-app :</b> {{ nama_project }}-{{ app }}
+        </p>
+        <p>
+          <b>Nama :</b> {{ nama }}
+        </p>
+        <p>
+          <b>Kelas :</b> {{ kelas }}
+        </p>
+      </div>
+      <h5 class="session">Sesi terakhir login: {{ last_login }}</h5>
 
-    <div class="identitas">
-    <p><b>Nama Project-app :</b>  {{nama_project}}-{{app}}  </p>
-    <p> <b>Nama         : </b>  {{nama}}</p>
-    <p><b>Kelas        : </b> {{kelas}} </p>
-</div>
-<h5 class="session">Sesi terakhir login: {{ last_login }}</h5>    
+      <div class="banyak-item">
+        <h2>Banyak Item : <b class="jml-item">{{ banyak_item }}</b></h2>
+      </div>
+      <div class="table-container">
+        <table class="table table-striped">
+          <tr>
+            <th>Nama Obat</th>
+            <th>Harga</th>
+            <th>Stok</th>
+            <th>Jenis Satuan</th>
+            <th>Jenis Obat</th>
+            <th>Expired</th>
+            <th>Update</th>
+          </tr>
+          <br />
+          <hr />
 
+          {% comment %}Berikut cara memperlihatkan data produk di bawah baris ini{% endcomment %}
 
-<h2>"Kamu menyimpan sebanyak <b class="jml-item">{{banyak_item}}</b> item pada aplikasi ini"  </h2>
-
-
-<table class="table table-striped">
-    <tr>
-        <th>Nama Obat</th>
-        <th>Harga</th>
-        <th>Stok</th>
-        <th>Jenis Satuan</th>
-        <th>Jenis Obat</th>
-        <th>Expired</th>
-        <th>Update</th>
-    </tr>
-    <br>
-    <hr>    
-
-    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
-    {% for obat in items %}
-        <tr>
-            <td>{{obat.nama_obat}}</td>
-            <td>{{obat.harga}}</td>
-            <td>{{obat.amount}}</td>
-            <td>{{obat.satuan_harga}}</td>
-            <td>{{obat.jenis_obat}}</td>
-            <td>{{obat.expired}}</td>
-            <td>
-                <div class="btn-group option-group-btn" role="group" aria-label="Basic mixed styles example">
-                    <button type="button" class="btn btn-success"><a href="{% url 'main:nambah_obat' obat.id %}" class="update-option">Tambah Stok</a></button>
-                    <button type="button" class="btn btn-warning"><a href="{% url 'main:kurangi_obat' obat.id %}"class="update-option" >Kurangi Stok</a></button>
-                    <button type="button" class="btn btn-danger"><a href="{% url 'main:delete_obat' obat.id %}" class="update-option" >Hapus Item</a></button>
+          {% for obat in items %}
+            {% if obat == last_item %}
+              <tr class="last-item">
+                <td>
+                  {{ obat.nama_obat }}
+                  <button type="button" class="btn btn-outline-info">More Info</button>
+                </td>
+                <td>{{ obat.harga }}</td>
+                <td>{{ obat.amount }}</td>
+                <td>{{ obat.satuan_harga }}</td>
+                <td>{{ obat.jenis_obat }}</td>
+                <td>{{ obat.expired }}</td>
+                <td>
+                  <div class="btn-group option-group-btn" role="group" aria-label="Basic mixed styles example">
+                    <button type="button" class="btn btn-outline-success"><a href="{% url 'main:nambah_obat' obat.id %}" class="update-option">Tambah Stok</a></button>
+                    <button type="button" class="btn btn-outline-warning"><a href="{% url 'main:kurangi_obat' obat.id %}" class="update-option">Kurangi Stok</a></button>
+                    <button type="button" class="btn btn-outline-danger"><a href="{% url 'main:delete_obat' obat.id %}" class="update-option">Hapus Item</a></button>
                   </div>
+                </td>
+              </tr>
+            {% endif %}
 
-               
+            {% if obat != last_item %}
+              <tr>
+                <td>
+                  {{ obat.nama_obat }}
+                  <button type="button" class="btn btn-info">More Info</button>
+                </td>
+                <td>{{ obat.harga }}</td>
+                <td>{{ obat.amount }}</td>
+                <td>{{ obat.satuan_harga }}</td>
+                <td>{{ obat.jenis_obat }}</td>
+                <td>{{ obat.expired }}</td>
+                <td>
+                  <div class="btn-group option-group-btn" role="group" aria-label="Basic mixed styles example">
+                    <button type="button" class="btn btn-success"><a href="{% url 'main:nambah_obat' obat.id %}" class="update-option">Tambah Stok</a></button>
+                    <button type="button" class="btn btn-warning"><a href="{% url 'main:kurangi_obat' obat.id %}" class="update-option">Kurangi Stok</a></button>
+                    <button type="button" class="btn btn-danger"><a href="{% url 'main:delete_obat' obat.id %}" class="update-option">Hapus Item</a></button>
+                  </div>
+                </td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </table>
+      </div>
 
-     
-            </td>
-          
-         
-        </tr>
-       
-    {% endfor %}
-</table>
- {% comment %} button untuk menuju laman pendaftaran data obat {% endcomment %}
-<a href="create-obat/">
-    <button type="button" class="btn btn-primary tambah-btn">+Obat</button>
-</a>
-<a href="{% url 'main:logout' %}">
-    <button  type="button" class="btn btn-secondary logout-btn">Logout</button>
-</a>
+      <div class="userbtn">
+        <a href="create-obat/"><button type="button" class="user-btn btn btn-primary tambah-btn">+Obat</button></a>
+        <a href="{% url 'main:logout' %}"><button type="button" class="user-btn btn btn-secondary logout-btn">Logout</button></a>
+      </div>
+      {% comment %}button untuk menuju laman pendaftaran data obat{% endcomment %}
 
+      <br />
+    </div>
+  </body>
 
-<br />
-    
-</body>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </html>

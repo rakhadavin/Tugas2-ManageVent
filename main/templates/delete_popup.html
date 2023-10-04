@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>DELETE ITEM | ManageVent</title>
-</head>
-<body>
-    <h2>Apakah Anda Yakin Ingin {{items.nama_obat}} ?</h2>
-    <form method="POST" >
-        {% csrf_token %}
-        <a href="{% url 'main:delete_obat' obat.id %}" class="confirm-yes">Ya</a>
-        <a href="{% url 'main:home' obat.id %}" class="confirm-no">Tidak</a>
+  <head>
+    <title>DELETE ITEM | ManageVent</title>
+  </head>
+  <body>
+    <h2>Apakah Anda Yakin Ingin {{ items.nama_obat }} ?</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <a href="{% url 'main:delete_obat' %}" class="confirm-yes">Ya</a>
+      <a href="{% url 'main:home %}" class="confirm-no">Tidak</a>
     </form>
-
-</body>
+  </body>
 </html>

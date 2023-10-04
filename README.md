@@ -385,7 +385,8 @@ Kemudian saya menambahkan sedikir sentuhan style css untuk web saya, dan beberap
 
 # BONUS
 
-untuk melakukan penambahan dan pengurangan stok pada app ini, saya membuat fungsi nambah_obat dan kurangi_obat pada views.py. kemudian saya menambahkan button untuk tambah dan kurangi stok pada masing masing item. Untuk menghapus item saya membuat fungsi delete_obat pada views. Agar saat di klik button tersebut merespon dengan melakukan perubahan pada item, saya melakukan salah satu implementasi regex dengan cara setiap button di klik, button akan mengirimkan button milik item maan yang di klik, dengan berupa id. Kemudian id item terpilih tersebut di kirimkan ke url, dan diambil kembali oleh fungsi yang saya buat di views.py
+untuk melakukan penambahan dan pengurangan stok pada app ini, saya membuat fungsi nambah_obat dan kurangi_obat pada views.py. ke
+mudian saya menambahkan button untuk tambah dan kurangi stok pada masing masing item. Untuk menghapus item saya membuat fungsi delete_obat pada views. Agar saat di klik button tersebut merespon dengan melakukan perubahan pada item, saya melakukan salah satu implementasi regex dengan cara setiap button di klik, button akan mengirimkan button milik item maan yang di klik, dengan berupa id. Kemudian id item terpilih tersebut di kirimkan ke url, dan diambil kembali oleh fungsi yang saya buat di views.py
 
 
 
@@ -404,6 +405,216 @@ selected_item.amount -=1; --> mengurangi jumlah stok
 selected_item.amount +=1; --> menambah jumlah stok
 selected.item.delete() --> menghapus item
 # 
+
+
+# TUGAS 5
+
+# Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+
+1. Element Selector (element):
+Manfaat: Memilih semua elemen dengan nama yang cocok.
+Kapan Menggunakan: Cocok untuk gaya yang akan diterapkan pada semua elemen dengan nama yang sama, misalnya, mengatur semua paragraf ("<p>) atau semua heading ("<h1>, "<h2>, dst.).
+
+* contoh
+p {
+    color: blue;
+}
+
+
+
+2. Class Selector (.class):
+Manfaat: Memilih elemen dengan kelas tertentu.
+Kapan Menggunakan: Berguna ketika Anda ingin menerapkan gaya pada beberapa elemen yang memiliki kelas yang sama, memungkinkan penggunaan kelas yang bersifat reusable.
+* contoh
+.highlight {
+    background-color: yellow;
+}
+
+3. ID Selector (#id):
+Manfaat: Memilih elemen dengan ID tertentu.
+Kapan Menggunakan: Cocok untuk menerapkan gaya pada elemen unik yang hanya ada satu di halaman.
+* contoh 
+#header {
+    font-size: 24px;
+}
+
+
+4. 4. Descendant Selector (ancestor descendant):
+Manfaat: Memilih elemen yang merupakan keturunan dari elemen tertentu.
+Kapan Menggunakan: Berguna ketika Anda ingin memilih elemen yang berada di dalam elemen lain, seperti memilih semua paragraf yang berada di dalam elemen dengan class tertentu.
+* contoh
+
+.container p {
+    margin-bottom: 10px;
+}
+
+
+5. Child Selector (parent > child):
+Manfaat: Memilih elemen yang langsung adalah anak dari elemen tertentu.
+Kapan Menggunakan: Berguna ketika Anda ingin memilih elemen yang merupakan anak langsung dari elemen lain, menghindari elemen yang adalah keturunannya.
+* contoh 
+ul > li {
+    list-style-type: square;
+}
+
+6. Pseudo-Class Selector (:pseudo-class):
+Manfaat: Memilih elemen berdasarkan keadaan atau interaksi pengguna.
+Kapan Menggunakan: Cocok untuk merubah tampilan elemen saat berada dalam keadaan tertentu, misalnya, mengubah warna tautan saat di-hover.
+* contoh 
+a:hover {
+    color: red;
+}
+
+7. Pseudo-Element Selector (::pseudo-element):
+Manfaat: Memilih dan memodifikasi bagian spesifik dari suatu elemen.
+Kapan Menggunakan: Berguna ketika Anda ingin merubah tampilan bagian-bagian tertentu dari suatu elemen, misalnya, merubah gaya teks awal atau akhir dari elemen.
+* contoh 
+p::first-line {
+    font-weight: bold;
+}
+
+
+
+# Perbedaan Margin dan Padding
+
+- Margin : ruang di luar batas elemen, dengan mudah dapat kita katakan sebagai jarak antar elemen. Margin digunakan untuk mengatur jarak dan ruang di luar container/sisi sisi elemen satu dengan lainnya
+
+Sebaiknya digunakan ketika ingin mengatur jarak antar elemen, menjauhkan / mendekatkan elemen satu dengan yang lainnya, dan menjaga supaya ketika elemen lain di atur margin/paddingnya, tidak akan menimpa elemen yang kita sudah atur marginnya
+
+- Padding : ruang yang beraada antara elemen pembungngkus  dengan elemennya (isi / konten) sendiri. Dengan mudahnya kita dapat katakan, padding adalah pengaturan jarak antara konten/isi dari sebuah tag, dengan pembungkus tag itu sendiri.
+
+sebaiknya digunakan ketika ingin mengatur jarak internal elemen, biasanya ketika kita menerapkan warna backgorund, container pemmbungkus akan menyesuaikan panjajng (padding right left) /tinggi (padding top bottom) sebanyak jarak padding yang diterapkan, dengan kata lain container pembungkus akan bertambah panjang dengan maksud memberi ruang pada konten yang berada di dalamnya.
+
+
+
+# Tag HTML 5
+
+"<!--...-->	Memberi  komentar
+"<!DOCTYPE> menspesifikasi document type
+"<a>	untuk anchor / link(url)
+"<abbr>	Specifies an abbreviation (untuk mendefinisikan suatu kata dan akan muncul ketika di hover dengan moouse)
+"<acronym>	Deprecated:Specifies an acronym (akronim)
+"<address>	Specifies an address element
+"<applet>	Deprecated: Specifies an applet
+"<area>	Specifies an area inside an image map
+"<article>	New Tag: Specifies an independent piece of content of a document, such as a blog entry or newspaper article
+"<aside>	New Tag:Specifies a piece of content that is only slightly related to the rest of the page.
+"<audio>	New Tag:Specifies an audio file.(memasukan input audio)
+"<base>	Specifies a base URL for all the links in a page
+"<basefont>	Deprecated: Specifies a base font
+"<bdo>	Specifies the direction of text display
+"<bgsound>	Specifies the background music
+"<blink>	Specifies a text which blinks
+"<blockquote>	Specifies a long quotation  (untuk emasukan kutipan)
+"<body>	Specifies the body element (elemen body dari html, yang beriisi isi konten)
+"<br>	Inserts a single line break (line break)
+"<button>	Specifies a push button (tombol)
+"<canvas>	New Tag:This is used for rendering dynamic bitmap graphics on the fly, such as graphs or games.
+"<caption>	Specifies a table caption
+"<center>	Deprecated: Specifies centered text (teks tengah)
+"<col>	Specifies attributes for table columns (membuat kolom)
+"<colgroup>	Specifies groups of table columns
+"<command>	New Tag:Specifies a command the user can invoke.
+"<comment>	Puts a comment in the document
+"<datalist>	New Tag:Together with the a new list attribute for input can be used to make comboboxes
+"<dd>	Specifies a definition description
+"<del>	Specifies deleted text
+"<details>	New Tag:Specifies additional information or controls which the user can obtain on demand.
+"<dir>	Deprecated: Specifies a directory list
+"<div>	Specifies a section in a document (membeentuk bagian/division tertentu sebagai pembungkus)
+"<dl>	Specifies a definition list
+"<dt>	Specifies a definition term
+"<embed>	New Tag:Defines external interactive content or plugin.
+"<fieldset>	Specifies a fieldset
+"<figure>	New Tag:Specifies a piece of self-contained flow content, typically referenced as a single unit from the main flow of the document.
+"<b>	Specifies bold text
+"<big>	Deprecated:Specifies big text
+"<i>	Specifies italic text (italic teks)
+"<small>	Specifies small text
+"<tt>	Deprecated:Specifies teletype text
+"<font>	Deprecated: Specifies text font, size, and color
+"<footer>	New Tag:Specifies a footer for a section and can contain information about the author, copyright information, et cetera.
+"<form>	Specifies a form 
+"<frame>	Deprecated:Specifies a sub window (a frame)
+"<frameset>	Deprecated:Specifies a set of frames
+"<head>	Specifies information about the document
+"<header>	New Tag:Specifies a group of introductory or navigational aids.
+"<hgroup>	New Tag:Specifies the header of a section.
+"<h1> to "<h6>	Specifies header 1 to header 6
+"<hr>	Specifies a horizontal rule
+"<html>	Specifies an html document
+"<isindex>	Deprecated: Specifies a single-line input field
+"<iframe>	Specifies an inline sub window (frame)
+"<ilayer>	Specifies an inline layer
+"<img>	Specifies an image
+"<input>	Specifies an input field
+"<ins>	Specifies inserted text
+"<keygen>	New Tag:Specifies control for key pair generation.
+"<keygen>	Generate key information in a form
+"<label>	Specifies a label for a form control
+"<layer>	Specifies a layer
+"<legend>	Specifies a title in a fieldset
+"<li>	Specifies a list item
+"<link>	Specifies a resource reference
+"<map>	Specifies an image map 
+"<mark>	New Tag:Specifies a run of text in one document marked or highlighted for reference purposes, due to its relevance in another context.
+"<marquee>	Create a scrolling-text marquee
+"<menu>	Deprecated: Specifies a menu list
+"<meta>	Specifies meta information
+"<meter>	New Tag:Specifies a measurement, such as disk usage.
+"<multicol>	Specifies a multicolumn text flow
+"<nav>	New Tag:Specifies a section of the document intended for navigation.
+"<nobr>	No breaks allowed in the enclosed text
+"<noembed>	Specifies content to be presented by browsers that do not support the "<embed>tag
+"<noframes>	Deprecated:Specifies a noframe section
+"<noscript>	Specifies a noscript section
+"<object>	Specifies an embedded object
+"<ol>	Specifies an ordered list
+"<optgroup>	Specifies an option group
+"<option>	Specifies an option in a drop-down list
+"<output>	New Tag:Specifies some type of output, such as from a calculation done through scripting.
+"<p>	Specifies a paragraph
+"<param>	Specifies a parameter for an object
+"<cite>	Specifies a citation
+"<code>	Specifies computer code text
+"<dfn>	Specifies a definition term
+"<em>	Specifies emphasized text 
+"<kbd>	Specifies keyboard text
+"<samp>	Specifies sample computer code
+"<strong>	Specifies strong text
+"<var>	Specifies a variable
+"<plaintext>	Deprecated: Render the raminder of the document as preformatted plain text
+"<pre>	Specifies preformatted text
+"<progress>	New Tag:Specifies a completion of a task, such as downloading or when performing a series of expensive operations.
+"<q>	Specifies a short quotation
+"<ruby>	New Tag:Together with "<rt> and "<rp> allow for marking up ruby annotations.
+"<script>	Specifies a script
+"<section>	New Tag:Represents a generic document or application section.
+"<select>	Specifies a selectable list
+"<spacer>	Specifies a white space
+"<span>	Specifies a section in a document
+"<s>	Deprecated: Specifies strikethrough text
+"<strike>	Deprecated: Specifies strikethrough text
+"<style>	Specifies a style definition
+"<sub>	Specifies subscripted text
+"<sup>	Specifies superscripted text
+"<table>	Specifies a table
+"<tbody>	Specifies a table body
+"<td>	Specifies a table cell
+"<textarea>	Specifies a text area
+"<tfoot>	Specifies a table footer
+"<th>	Specifies a table header
+"<thead>	Specifies a table header
+"<time>	New Tag:Specifies a date and/or time.
+"<title>	Specifies the document title
+"<tr>	Specifies a table row
+"<u>	Deprecated: Specifies underlined text
+"<ul>	Specifies an unordered list
+"<video>	New Tag:Specifies a video file.
+"<wbr>	New Tag:Specifies a line break opportunity.
+"<wbr>	Indicate a potential word break point within a "<nobr> section
+"<xmp>	Deprecated: Specifies preformatted text
+
 
 
 

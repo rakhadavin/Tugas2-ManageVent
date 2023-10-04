@@ -1,25 +1,96 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
 {% block content %}
-<h1>Tambahkan Data Obat</h1>
+  <div class="judul">
+    <h1>Tambahkan Data Obat</h1>
+  </div>
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
+  <div class="container">
+    <form method="POST">
+      {% csrf_token %}
+      <table>
         <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Add Product"/>
-            </td>
-     
+          <td>
+            <label for="nama_obat">Nama Obat</label>
+          </td>
+          <td class="fields">{{ form.nama_obat }}</td>
         </tr>
-    </table>
-</form>
+        <tr>
+          <td>
+            <label for="amount">Stok</label>
+          </td>
+          <td class="fields">{{ form.amount }}</td>
+        </tr>
+        <tr>
+          <td>
+            <label for="harga">Harga</label>
+          </td>
+          <td class="fields">{{ form.harga }}</td>
+        </tr>
+        <tr>
+          <td>
+            <label for="satuan_harga">Satuan Harga</label>
+          </td>
+          <td class="fields">{{ form.satuan_harga }}</td>
+        </tr>
+        <tr>
+          <td>
+            <label for="jenis_obat">Jenis Obat</label>
+          </td>
+          <td class="fields">{{ form.jenis_obat }}</td>
+        </tr>
+        <tr>
+          <td>
+            <label for="deskripsi">Deskripsi</label>
+          </td>
+          <td class="fields">{{ form.deskripsi }}</td>
+        </tr>
+        <tr>
+          <td>
+            <label for="expired">Expired</label>
+          </td>
+          <td class="fields">{{ form.expired }}</td>
+        </tr>
+        <tr>
+          <td>
+            <label for="gambar">Gambar Produk</label>
+          </td>
+          <td class="fields">{{ form.gambar }}</td>
+        </tr>
 
-{% comment %} manambahkan button untuk kemali kehalaman sbeelumnya, untuk melihat tabel {% endcomment %}
-<a href="/">
-    <button>Kembali</button>
-</a>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" value="Add Product" class="btn btn-success" />
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+              <a type="button" class="btn btn-outline-danger" href="{% url 'main:home' %}">Kembali</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
 
+  {% comment %}manambahkan button untuk kemali kehalaman sbeelumnya, untuk melihat tabel{% endcomment %}
+  {% comment %} <a href="{% url 'main:home' %}"><button>Kembali</button></a> {% endcomment %}
+
+  <script>
+    $(document).ready(function () {
+      $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true
+      })
+    
+      $('.timepicker').timepicker({
+        format: 'hh:ii:ss',
+        autoclose: true,
+        showMeridian: false
+      })
+    
+      $('.datetimepicker').datetimepicker({
+        format: 'YYYY-MM-DD HH:mm:ss',
+        showClear: true
+      })
+    })
+  </script>
 {% endblock %}
