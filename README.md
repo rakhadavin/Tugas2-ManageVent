@@ -6,6 +6,8 @@ Kelas : PBP F
 
 Jurusan : Sistem Informasi-Fasilkom UI
 
+Link Deploy : htps://rakha-davin-tugas.pbp.cs.ui.id
+
 Link :
 https://github.com/rakhadavin/Tugas2-ManageVent/tree/mainBranch (Github)
 https://managevent01.adaptable.app/main (Addaptable)
@@ -257,7 +259,7 @@ JSON : JavaScript Object Notation
 
 - membuat file base.html
 
-2.                                                                                                                                Membuat FORM
+2.                                                                                                                                 Membuat FORM
 
     a. Pertama saya membuat models.py terlebih dahulu yang berisikan metadata mengenai produk yang akan di input (migrasi) ke dalam database sekaligus sebagai inisiasi filed ke dalam form
     b. membuat class ProductForm (forms.py) yang berisikan field meta data dari masing-masing obat, dimana class tersebut mengambil data dari class Item yang ada di models.py
