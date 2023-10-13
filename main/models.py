@@ -37,7 +37,6 @@ class Item(models.Model):
     jenis_obat = models.CharField(max_length=100, default="Generic", choices=pilihan_jenis_obat) #jenis obat
     deskripsi = models.TextField()   #kegunaan obat
     expired = models.DateField(verbose_name="Expired \n(format : yyyy-mm-dd)") #expired
-    gambar = models.ImageField( upload_to=None, max_length=100)
     
     
 
@@ -48,13 +47,13 @@ class Item(models.Model):
 
 class user_profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    profile_picture = models.FileField()
+    profile_picture = models.ImageField( upload_to=None, height_field=None, width_field=None, max_length=None)
     nama_profile = models.CharField(max_length=255) 
     user_email =models.EmailField( max_length=254)
     
     
     def __str__(self):
-        return "{}".format(self.user, self.profile_picture, self.nama_profile, self.user_email)
+        return "{}".format(self.profile_picture, self.nama_profile, self.user_email)
 
    
     

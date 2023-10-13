@@ -9,15 +9,15 @@ class DateInput(forms.DateInput):
 class ProductForms(ModelForm):
     class Meta:
         model = models.Item
-        fields = ["nama_obat", "amount", "harga", "satuan_harga","jenis_obat","expired", "deskripsi","gambar"]
+        fields = ["nama_obat", "amount", "harga", "satuan_harga","jenis_obat","expired", "deskripsi"]
 
     expired = forms.DateField(widget=DateInput)
    
    
-class profileForm(ModelForm):
+class ProfileForm(ModelForm):
     class Meta:
         model = models.user_profile
-        fields=["user","profile_picture", "nama_profile","user_email"]
+        fields=["profile_picture", "nama_profile","user_email"]
     
     
 

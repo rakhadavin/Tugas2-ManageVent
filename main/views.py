@@ -2,7 +2,7 @@ from django.shortcuts import render
 from . import models 
 from . import forms as f
 from django import forms
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseNotFound, HttpResponseRedirect
 from main.forms import ProductForms
 from django.urls import reverse
 from django.http import HttpResponse
@@ -13,6 +13,19 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import datetime
+from django.contrib.auth.models import User 
+from django.views.decorators.csrf import csrf_exempt
+
+def get_product_json(request):
+    my_obats = models.Item.objects.all()
+    return HttpResponse(serializers.serialize("json", my_obats))
+
+
+def get_product_by_id(request,id_obat):
+    selected_item = models.Item.objects.get(id=id_obat)
+    print(selected_item)
+
+    return HttpResponse(serializers.serialize("json", selected_item))
 
 
 @login_required(login_url='/login')
@@ -27,7 +40,7 @@ def home(request):
         context = {
             "nama_project" : "ManageVent",
             "developer" : "Daveen",
-            "nama" : request.user.username,
+            "nama" : request.user,
             "kelas": "PBP F",
             "title":"ManageVent",
             "app" : "main",
@@ -154,19 +167,21 @@ def kurangi_obat(request,id_obat):
 
 
 
-def delete_obat(request,id_user):
-    selected_item = models.Item.objects.get(id=id_user)
+def delete_obat(request,id_obat):
+    selected_item = models.Item.objects.get(id=id_obat)
     if  selected_item is not None:
         selected_item.delete()
 
     return HttpResponseRedirect(reverse('main:home'))
     
-def edit_profile(request,id_user):
-    selected_user = request.user.filter(id = id_user)
-    profile_form    = models.profileForm(request.POST)
+def user_profile(request,id_user):
+    selected_user = User.objects.filter(id=id_user).first() #ngambil user 
+    print("USER :" , selected_user ,"\n") 
     
-    print(selected_user)
-    if (request.methode == 'POST' and profile_form.is_valid()):
+    profile_form    = f.ProfileForm(    )
+    
+    if (request.method == 'POST' and profile_form.is_valid()):
+        print('ok')
         if ( selected_user is not None):
             additional_data = profile_form.cleaned_data['additional_data']
             request.user.userprofile.additional_field = additional_data
@@ -178,8 +193,31 @@ def edit_profile(request,id_user):
 
         return redirect('main:home',profile_form)
         
-        
-    print(selected_user.username)
-    return render(request,"user_profile.html",)
+    context={
+        "profile_form": profile_form
+    }
+    print(selected_user,"ini selected ")
+    return render(request,"user_profile.html",context)
 
+@csrf_exempt
+def create_data_obat_ajax(request):
+    
+
+    if request.method == "POST":
+        nama_obat = request.POST.get("nama_obat")
+        amount = request.POST.get("stok")
+        harga = request.POST.get("harga")
+        satuan_harga = request.POST.get("jenis_satuan")
+        jenis_obat = request.POST.get("jenis_obat")
+        deskripsi = request.POST.get("deskripsi")
+        expired = request.POST.get("expired")
+        user = request.user
+
+        new_obat = models.Item(nama_obat=nama_obat,amount=amount,harga=harga,satuan_harga=satuan_harga,jenis_obat = jenis_obat,deskripsi=deskripsi, expired=expired, user=user)
+        new_obat.save()
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+ 
+   
     
