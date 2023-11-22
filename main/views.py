@@ -15,6 +15,7 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from django.contrib.auth.models import User 
 from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 def get_product_json(request):
     my_obats = models.Item.objects.all()
@@ -91,11 +92,32 @@ def expired(request):
         form = f.ExpiredForms(request.POST)
         if form.is_valid():
             expired_field = form.changed_data['expired']
-
     else:
         form = f.ExpiredForms()
+        
+        
 
     return render(request, 'home.html', {'form': form})
+
+@csrf_exempt
+# perbaiki filed nya
+def create_product_flutter(request):
+    if request.method == 'POST':
+        
+        data = json.loads(request.body)
+
+        new_product = models.Item.objects.create(
+            user = request.user,
+            name = data["name"],
+            price = int(data["price"]),
+            description = data["description"]
+        )
+
+        new_product.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
 def register (request):
     #buat form nya
     form = UserCreationForm()
