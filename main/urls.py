@@ -1,7 +1,7 @@
 
 from django.urls import path
 from django.conf import settings
-from main.views import  show_xml, show_json, show_xml_by_id, show_json_by_id 
+from main.views import  show_xml, show_json, show_xml_by_id, show_json_by_id , delete_obat
 from . import views
 
 app_name = "main"
